@@ -1,0 +1,22 @@
+{
+  "name": "ai-course-project-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "remove:all": "rm -rf **/node_modules **/dist **/package-lock.json",
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server",
+    "install:prod": "npm install --prefix client && npm install --prefix server",
+    "build:prod": "npm run build --prefix client && npm run build --prefix server",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start:prod": "npm run start --prefix server",
+    "deploy": "npm run install:prod && npm run build:prod",
+    "verify:build": "npm run remove:all && npm run deploy && npm run start:prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
